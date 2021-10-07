@@ -1,0 +1,22 @@
+
+# als dit alles niet doorgaat is de top bereikt en kunnen we 1 keer zuid.
+
+
+0 x*** -> N 0
+0 Nx** -> E 0
+0 NEx* -> W 0
+0 NEW* -> S 1
+# zoek de top
+
+1 *x** -> E 1
+1 *E** -> W 2
+# ga naar rechts tot het niet meer kan
+
+2 **x* -> W 2
+2 **Wx -> S 1
+2 **WS -> E 3
+# ga naar links tot het niet meer kan. 
+# Is Zuid vrij? Ga zuid.
+# Is Zuid niet vrij? Ga oost en dan zuid en herhaal state 1.
+
+3 ***x -> S 1

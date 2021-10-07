@@ -1,0 +1,9 @@
+2
+Ik ben het wel eens met de stelling. 
+Ik denk dat het erg handig kan zijn om met big data te werken in plaats van met modellen, 
+omdat een model altijd een voorspelde weergave is. Terwijl big data ons daadwerkelijk de feiten laat zien.
+Een model is vaker een hypothetische stelling van de toekomst. Terwijl big data oorzaak en gevolg laat zien van praktische voorbeelden:
+werkt een advertentie wel of niet? Een set van veel data kan je meer vertellen dan een goed doordachte analyse. 
+Je weet precies wie waarop klikt en kunt hierop een goede beslissing maken om het wel/niet aan iemand te laten zien.
+Een model zou eerder kijken naar hoe groot de kans is dat een bepaald publiek hierop klikt, wat veel minder goed werkt, omdat
+het per groep bekeken wordt, terwijl big data de gegevens en click kan geven per specifieke persoon.

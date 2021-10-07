@@ -1,0 +1,27 @@
+Wat is het meest interessante of belangrijke idee in dit artikel volgens jou; en waarom?
+    Het meest interessante van dit aritkel vind ik dat de computer een antwoord kan bedenken op basis van een vraag.
+    De computer kan key-words uit de zin halen en hier een goed antwoord op bedenken. 
+    Hierdoor is het mogelijk om goede antwoorden te krijgen.
+
+Wat is een toepassing waar (volgens jou) de technologie van Watson aan kan bijdragen? 
+Of denk je dat de mogelijkheden van Watson maar weinig kunnen betekenen? 
+Je kan hier webartikelen voor zoeken, of zelf hierover speculeren.
+    Het is natuurlijk makkelijk om een applicatie te hebben die je meteen antwoord kan geven op al je vragen.
+    Natuurlijk is een actuele toepassing hiervan de alexa, siri en andere virtuele hulp. 
+    Deze kunnen via het internet snel antwoorden vinden op vragen of berekeningen etc.
+    Een verder uitgewerkte hulp zou eindeloos veel toepassingen hebben in ons dagelijkse leven.
+    Ondanks dat watson maar een simpele versie is van deze hulpen, is hij alsnog zeer handig.
+    Of hij echt onmisbaar is weet ik niet. Ik zou liever andere machine learning applicaties hebben boven watson.
+
+Beschrijf, ook als je niet de "Watson-achtige" applicatie hebt kunnen gebruiken, 
+hoe jij de overeenkomsten en verschillen ziet tussen de manier van denken van Watson en die van mensen.
+    Voorbeeld uit artikel: De vraag was welke stad 2 vliegvelden heeft die vernoemd zijn naar een WWII held en slag.
+    Wij mensen zowel als Watson zouden kijken naar alle vliegvelden hun namen die wij kennen en hieruit een antwoord vinden door
+    het vliegveld met de stad te linken. Hierin zie je de gelijkenis tussen Watson en wij mensen.
+
+    Het verschil tussen de werkwijze is dat Watson dit via databases etc. doet, terwijl wij misschien ook links kunnen leggen.
+    Als een stad bijvoorbeeld veel te maken heeft gehad met de tweede wereldoorlog, kan het zijn dat wij die kiezen.
+    Watson zou juist voor zekerheid willen gaan en gaat niet dit soort gis-antwoorden zoeken.
+    In het artikel wordt ook verteld dat Watson bij een onzeker antwoord probeert om niet snel te antwoorden zodat de andere kandidaat
+    aan de beurt is en zodat watson niet voor schut staat.
+    
