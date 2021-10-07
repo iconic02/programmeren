@@ -117,7 +117,8 @@ def f_of_fracs(f, low, hi, n):
     return [f(x) for x in scaledfracs(low, hi, n)]
 
 def integrate(f, low, hi, n):
-    """integrate geeft integraal terug 
+    """integrate geeft integraal terug via f_of_fracs, hij neemt de som van de uitkomsten en 
+    vermenigvuldigt dit met de x per stap: (hi-low)/n
 
     Args:
         f (functie): de gewenste functie
