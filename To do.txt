@@ -1,0 +1,36 @@
+PRG
+
+    code review: 
+        Check code, all functions
+        Check docstrings, make you own.
+        Check for needed tests. 
+        Check if all answers are in the file
+
+    week_3
+        wk3ex2 okt 10:
+            Docstrings aanpassen/maken.
+            tests toevoegen.
+        wk3ex3
+            code review
+        wk3ex4 
+            code review
+
+    week_4
+        wk4ex0
+            maken
+        wk4ex1
+            maken
+        wk4ex2
+            maken
+
+BED
+    Opdracht werkcollege 2
+        link: https://blackboard.hanze.nl/webapps/blackboard/content/listContent.jsp?course_id=_352061_1&content_id=_5424647_1&mode=reset
+
+DBS
+    Maken opdrachten
+    Maken extra opdrachten
+
+SCH
+    Leren voor eindopdracht
+
