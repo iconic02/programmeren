@@ -75,7 +75,7 @@ assert unitfracs(2) == [0.0,0.5]
 assert unitfracs(4) == [0.0,0.25,0.5,0.75]
 
 def scaledfracs(low, hi, n):
-    """scaledfracs unitfracs maar dan van low tot hi
+    """scaledfracs geeft een lijst van low naar high met gelijke stappen ertussen
 
     Args:
         low (int): lowest point
@@ -91,7 +91,7 @@ assert scaledfracs(0,100,10)
 
 
 def sqfracs(low, hi, n):
-    """sqfracs hetzelfde als scaled, maar dan squared.
+    """sqfracs geeft een lijst van low naar high met n stappen, maar squared alle uitkomsten
 
     Args:
         low (int): lowest num
@@ -105,7 +105,8 @@ assert sqfracs(0, 10, 5) == [0.0, 4.0, 16.0, 36.0, 64.0]
 assert sqfracs(10, 20, 2) == [100.0, 225.0]
 
 def f_of_fracs(f, low, hi, n):
-    """f_of_fracs neemt een functie een verschillende waarden en geeft output
+    """f_of_fracs neemt een functie en maakt van low, hi, n een lijst via scaledfracs.
+    De uitkomsten van scaledfracs worden door de gegeven functie gehaald.
 
     Args:
         f (functie): neemt een functie om te gebruiken.
@@ -116,7 +117,7 @@ def f_of_fracs(f, low, hi, n):
     return [f(x) for x in scaledfracs(low, hi, n)]
 
 def integrate(f, low, hi, n):
-    """integrate geeft integraal terug
+    """integrate geeft integraal terug 
 
     Args:
         f (functie): de gewenste functie
