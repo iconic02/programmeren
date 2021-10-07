@@ -8,7 +8,6 @@ import random
 import math
 from audio import *
 
-
 print('wat een kut programma')
 # een functie zodat we kunnen beginnen met een opfrisser
 # over list comprehensions...
