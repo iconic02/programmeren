@@ -8,7 +8,7 @@ import random
 import math
 from audio import *
 
-print('wat een kut programma')
+
 # een functie zodat we kunnen beginnen met een opfrisser
 # over list comprehensions...
 def three_ize(L):
@@ -237,13 +237,54 @@ def reverse(filename):
 
 
 # Te schrijven geluidsfunctie #2: volume
+def volume(filename, scale_factor):
+    """volume neemt een file een scaled deze omhoog of naar beneden met scale()
 
+
+    Args:
+        filename (string): de file die gebruikt moet worden
+        scale_factor (float): de factor waarmee je moet scalen
+
+    """
+    print('orgineel volume: ')
+    play(filename)
+
+    sound_data = [0,0]
+    read_wav(filename, sound_data)
+    samps = sound_data[0]
+    sr = sound_data[1]
+    new_samps = scale(samps, scale_factor)
+    new_sound_data = [new_samps, sr]
+    
+    print('Nieuw volume: ')
+    write_wav(new_sound_data, 'out.wav')
+
+    play('out.wav')
 
 # Te schrijven geluidsfunctie #3: static
+def static(filename, prob_of_static):
+    """static neemt file en vervangt sommige delen met een andere sample via replace_some
 
+    Args:
+        filename (string): het audio bestand
+        prob_of_static (float): wordt gegeven aan replace_some
 
+    """
+    print('orgineel geluid:')
+    play(filename)
+
+    sound_data = [0,0]
+    read_wav(filename, sound_data)
+    samps = sound_data[0]
+    sr = sound_data[1]
+    new_samps = replace_some(samps, prob_of_static)
+    new_sound_data = [new_samps, sr]
+
+    print('nieuw geluid')
+    write_wav(new_sound_data, 'out.wav')
+    play('out.wav')
 # Te schrijven geluidsfunctie #4: overlay
-
+def overlay()
 
 # Te schrijven geluidsfunctie #5: echo
 
