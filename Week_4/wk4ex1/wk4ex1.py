@@ -284,9 +284,52 @@ def static(filename, prob_of_static):
     write_wav(new_sound_data, 'out.wav')
     play('out.wav')
 # Te schrijven geluidsfunctie #4: overlay
-def overlay()
+def overlay(filename, filename2): 
+    """overlay takes 2 samples and plays them together using add_scale_2
+
+
+    Returns:
+        sound: new sound
+    """
+    print('orgineel geluid:')
+    play(filename)
+    print('orgineel geluid 2:')
+    play(filename2)
+
+    sound_data = [0,0]
+    sound_data2 = [0,0]
+
+    read_wav(filename, sound_data)
+    samps = sound_data[0]
+    sr = sound_data[1]
+    read_wav(filename2, sound_data2)
+    samps2 = sound_data2[0]
+    sr2 = sound_data2[1]
+    
+
+    new_samps = add_scale_2(samps,samps2,0.5,0.5)
+    new_sound_data = [new_samps, sr]
+    write_wav(new_sound_data, 'out.wav')
+
+    play('out.wav')
 
 # Te schrijven geluidsfunctie #5: echo
+def echo(filename, timedelay):
+    """echo neemt een file en laat een 2e keer het geluid iets later afspelen
+
+    Takes:
+    Filename string: de file
+    timedelay float: het aantal seconden delay
+
+    Returns:
+        : 
+    """
+    print('Het orginele geluid:')
+    play(filename)
+
+    sound_data = [0,0]
+    read_wav(filename, sound_data)
+    
 
 
 # Hulpfunctie om pure tonen te genereren
