@@ -13,8 +13,6 @@ PRG
             code review
 
     week_4
-        wk4ex0
-            maken
         wk4ex1
             maken
         wk4ex2
