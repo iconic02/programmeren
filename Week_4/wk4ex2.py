@@ -9,7 +9,7 @@ def encode(s, n):
         print('geen geldige input voor n')
         return
     elif s == '':
-        return
+        return ''
     else:
         return e_letter(s[0],n) + encode(s[1:], n)
 
@@ -23,9 +23,20 @@ def e_letter(s, n):
         s (string): de letter
         n (int): aantal stappen vooruit
     """
+    if s.isUpper() == True:
+        for x in range(len(alfabet)):
+            if alfabet[x] == s[0]:
+                if x+n <= 25:
+                    return alfabet[x+n]
+                else:
+                    return alfabet[x+n-26]       
+    elif s.isUpper() == False:
+        for x in range(len(alfabet)):
+            if alfabet[x] == s[0]:
+                if x+n <= 25:
+                    return alfabet[x+n]
+                else:
+                    return alfabet[x+n-26]
+    else:
+        return s
     
-    for x in range(len(alfabet)):
-        if alfabet[x] == s[0]:
-            return alfabet[x+n]
-    print('letter not found')
-    return
