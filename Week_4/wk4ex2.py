@@ -14,7 +14,7 @@ def encode(s, n):
         return e_letter(s[0],n) + encode(s[1:], n)
 
 alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-
+upperAlfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 def e_letter(s, n):
     """e_letter neemt 1 letter van encode en roteert
@@ -23,14 +23,14 @@ def e_letter(s, n):
         s (string): de letter
         n (int): aantal stappen vooruit
     """
-    if s.isUpper() == True:
-        for x in range(len(alfabet)):
-            if alfabet[x] == s[0]:
+    if s.isupper() == True:
+        for x in range(len(upperAlfabet)):
+            if upperAlfabet[x] == s[0]:
                 if x+n <= 25:
-                    return alfabet[x+n]
+                    return upperAlfabet[x+n]
                 else:
-                    return alfabet[x+n-26]       
-    elif s.isUpper() == False:
+                    return upperAlfabet[x+n-26]       
+    elif s.isupper() == False:
         for x in range(len(alfabet)):
             if alfabet[x] == s[0]:
                 if x+n <= 25:
