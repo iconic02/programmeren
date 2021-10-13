@@ -51,10 +51,14 @@ def decipher(s):
         s (string): de gegeven versleutelde string
     """
     L = [encipher(s,n) for n in range(26)]
+    sumList = []
     for x in L:
-        listProb = [letter_prob(x[b]) for b in range(x)]
-    print(listProb)
-    print(L)
+        listProb = [letter_prob(x[b]) for b in range(len(x))]
+        sumList.append(sum(listProb))
+    max_index = sumList.index(max(sumList))
+    return L[max_index]
+
+
 
 def letter_prob(c):
     """If c is an alphabetic character,
@@ -116,3 +120,41 @@ def letter_prob(c):
     if c == 'q' or c == 'Q':
         return 0.0001
     return 1.0
+
+
+assert decipher('Bzdrzqbhiedq? Hj gda khdudq Bzdrzqrzkzcd.') == 'Caesarcijfer? Ik heb liever Caesarsalade.'
+assert decipher('Aadxas ue exqotfe pq haadflqffuzs hmz baxufuqw yqf mzpqdq yuppqxqz.') == 'Oorlog is slechts de voortzetting van politiek met andere middelen.'
+
+
+def blsort(L):
+    """blsort neemt een lijst met binaire getallen, en set deze op volgorde
+
+    Args:
+        L (list): de lijst met binaire getallen
+    """
+    sortList = []
+    numOne = 0
+    for x in L:
+        if x == 0:
+            sortList.append(0)
+        if x == 1:
+            numOne += 1
+    for x in range(numOne):
+        sortList.append(1)
+    return sortList
+
+def gensort(L):
+    """gensort neemt lijst L en sorteerd.
+
+    Args:
+        L (list): lijst met integers
+    """
+    newL = []
+    for x in range(len(L)):
+        newL.append(min(L))
+        L.remove(min(L))
+    return newL
+
+assert gensort([42, 1, 3.14]) == [1, 3.14, 42]
+assert gensort([7, 9, 4, 3, 0, 5, 2, 6, 1, 8]) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
