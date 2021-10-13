@@ -1,5 +1,5 @@
-def encode(s, n):
-    """encode een functie die string s voorwaards roteert met n stappen. volgens ceasar schrift 
+def encipher(s, n):
+    """encipher een functie die string s voorwaards roteert met n stappen. volgens ceasar schrift 
 
     Args:
         s (string): een string, kan een zin zijn.
@@ -11,27 +11,27 @@ def encode(s, n):
     elif s == '':
         return ''
     else:
-        return e_letter(s[0],n) + encode(s[1:], n)
+        return rot(s[0],n) + encipher(s[1:], n)
 
 alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 upperAlfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-def e_letter(s, n):
-    """e_letter neemt 1 letter van encode en roteert
+def rot(s, n):
+    """rot neemt 1 letter van encipher en roteert
 
     Args:
         s (string): de letter
         n (int): aantal stappen vooruit
     """
     if s.isupper() == True:
-        for x in range(len(upperAlfabet)):
+        for x in range(len(upperAlfabet)+1):
             if upperAlfabet[x] == s[0]:
                 if x+n <= 25:
                     return upperAlfabet[x+n]
                 else:
                     return upperAlfabet[x+n-26]       
-    elif s.isupper() == False:
-        for x in range(len(alfabet)):
+    elif s.isupper() == False and s.islower() == True:
+        for x in range(len(alfabet)+1):
             if alfabet[x] == s[0]:
                 if x+n <= 25:
                     return alfabet[x+n]
@@ -40,3 +40,79 @@ def e_letter(s, n):
     else:
         return s
     
+assert encipher("xyza", 1) == "yzab"
+assert encipher("Z A", 1) == "A B"
+assert encipher('Caesarcijfer? Ik heb liever Caesarsalade.', 25) == 'Bzdrzqbhiedq? Hj gda khdudq Bzdrzqrzkzcd.'
+
+def decipher(s):
+    """decipher functie die een gegeven string ontcijfert met een omgekeerd caesarschrift
+
+    Args:
+        s (string): de gegeven versleutelde string
+    """
+    L = [encipher(s,n) for n in range(26)]
+    for x in L:
+        listProb = [letter_prob(x[b]) for b in range(x)]
+    print(listProb)
+    print(L)
+
+def letter_prob(c):
+    """If c is an alphabetic character,
+       we return its monogram probability (for Dutch),
+       otherwise we return 1.0.  We ignore capitalization.
+       Adapted from
+       https://www.sttmedia.com/characterfrequency-nederlands
+    """
+    if c == 'e' or c == 'E':
+        return 0.1909
+    if c == 'n' or c == 'N':
+        return 0.0991
+    if c == 'a' or c == 'A':
+        return 0.0769
+    if c == 't' or c == 'T':
+        return 0.0642
+    if c == 'i' or c == 'I':
+        return 0.0630
+    if c == 'o' or c == 'O':
+        return 0.0581
+    if c == 'r' or c == 'R':
+        return 0.0562
+    if c == 'd' or c == 'D':
+        return 0.0541
+    if c == 's' or c == 'S':
+        return 0.0384
+    if c == 'l' or c == 'L':
+        return 0.0380
+    if c == 'h' or c == 'H':
+        return 0.0312
+    if c == 'g' or c == 'G':
+        return 0.0312
+    if c == 'k' or c == 'K':
+        return 0.0279
+    if c == 'm' or c == 'M':
+        return 0.0256
+    if c == 'v' or c == 'V':
+        return 0.0224
+    if c == 'u' or c == 'U':
+        return 0.0212
+    if c == 'j' or c == 'J':
+        return 0.0182
+    if c == 'w' or c == 'W':
+        return 0.0172
+    if c == 'z' or c == 'Z':
+        return 0.0160
+    if c == 'p' or c == 'P':
+        return 0.0149
+    if c == 'b' or c == 'B':
+        return 0.0136
+    if c == 'c' or c == 'C':
+        return 0.0130
+    if c == 'f' or c == 'F':
+        return 0.0073
+    if c == 'y' or c == 'Y':
+        return 0.0006
+    if c == 'x' or c == 'X':
+        return 0.0005
+    if c == 'q' or c == 'Q':
+        return 0.0001
+    return 1.0
