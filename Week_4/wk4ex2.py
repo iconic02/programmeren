@@ -158,3 +158,42 @@ def gensort(L):
 assert gensort([42, 1, 3.14]) == [1, 3.14, 42]
 assert gensort([7, 9, 4, 3, 0, 5, 2, 6, 1, 8]) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+def lingo(s, t):
+    """lingo neemt 2 strings en geeft terug hoeveel letters de beide woorden gemeen hebben.
+    Dit hoeven niet letters zijn op dezelfde plek.
+
+    s: string: het eerste woord
+    t: string: het tweede woord
+
+    """
+    sameCounter = 0
+    for x in s:
+        for b in t:
+            if b == x:
+                sameCounter += 1
+    return sameCounter
+
+
+def exact_change(target, L):
+    if target < 0:
+        return False
+    elif target == 0:
+        return True
+    else: 
+        
+
+
+
+        
+   
+
+
+
+total = sum(L)
+    oou = total-target
+    if oou in L:
+        L.remove(oou)
+        return True
+    elif oou not in L:
+        print('Cant find exact oou in list L')
+        return
