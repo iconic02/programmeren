@@ -167,22 +167,34 @@ def lingo(s, t):
 
     """
     sameCounter = 0
-    for x in s:
-        for b in t:
-            if b == x:
-                t.replace(b, '')
+    for x in range(len(s)):
+        for b in range(len(t)):
+            if s[x] == t[b]:
+                t = t.replace(t[b], ' ', 1)
                 sameCounter += 1
-    print(b)
-    print(sameCounter)
+                print(s, t)
+                #visualisatie over hoe het programma werkt
+                break
+    if '' in s:
+        #compensatie voor spaties in s
+        #deze worden namelijk wel meegerekend in sameCounter
+        sameCounter -= 1    
+    return sameCounter
 
-
-#def exact_change(target, L):
-#   if target < 0:
-#       return False
-#   elif target == 0:
-#       return True
-#   else: 
-        
+def exact_change(target, L):
+    if target < 0:
+       return False
+    elif target == 0:
+       return True
+    else: 
+        oou = sum(L)-target
+        if oou in L:
+            L.remove(oou)
+            print(L)
+            return True
+        elif oou not in L:
+            print('Geen direct resultaat')
+            return False
 
 
 
