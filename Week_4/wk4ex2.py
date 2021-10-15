@@ -182,6 +182,10 @@ def lingo(s, t):
     return sameCounter
 
 def exact_change(target, L):
+    for x in range(len(L)):
+        if L[x] > target:
+            print(L.remove(x))
+    print(L)
     if target < 0:
        return False
     elif target == 0:
