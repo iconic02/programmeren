@@ -170,16 +170,18 @@ def lingo(s, t):
     for x in s:
         for b in t:
             if b == x:
+                t.replace(b, '')
                 sameCounter += 1
-    return sameCounter
+    print(b)
+    print(sameCounter)
 
 
-def exact_change(target, L):
-    if target < 0:
-        return False
-    elif target == 0:
-        return True
-    else: 
+#def exact_change(target, L):
+#   if target < 0:
+#       return False
+#   elif target == 0:
+#       return True
+#   else: 
         
 
 
@@ -189,11 +191,11 @@ def exact_change(target, L):
 
 
 
-total = sum(L)
-    oou = total-target
-    if oou in L:
-        L.remove(oou)
-        return True
-    elif oou not in L:
-        print('Cant find exact oou in list L')
-        return
+#total = sum(L)
+#    oou = total-target
+#    if oou in L:
+#        L.remove(oou)
+#        return True
+#    elif oou not in L:
+#        print('Cant find exact oou in list L')
+#        return
