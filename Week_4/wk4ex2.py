@@ -1,3 +1,6 @@
+#wk4ex2
+
+
 def encipher(s, n):
     """encipher een functie die string s voorwaards roteert met n stappen. volgens ceasar schrift 
 
@@ -13,8 +16,7 @@ def encipher(s, n):
     else:
         return rot(s[0],n) + encipher(s[1:], n)
 
-alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-upperAlfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
 
 def rot(s, n):
     """rot neemt 1 letter van encipher en roteert
@@ -23,26 +25,16 @@ def rot(s, n):
         s (string): de letter
         n (int): aantal stappen vooruit
     """
-    if s.isupper() == True:
-        for x in range(len(upperAlfabet)+1):
-            if upperAlfabet[x] == s[0]:
-                if x+n <= 25:
-                    return upperAlfabet[x+n]
-                else:
-                    return upperAlfabet[x+n-26]       
-    elif s.isupper() == False and s.islower() == True:
-        for x in range(len(alfabet)+1):
-            if alfabet[x] == s[0]:
-                if x+n <= 25:
-                    return alfabet[x+n]
-                else:
-                    return alfabet[x+n-26]
+    if n == 0:
+        return s
+    elif 'a' <= s < 'z' or 'A' <= s < 'Z':
+        return rot(chr(ord(s[0])+1),n-1)
+    elif s == 'z' or s == 'Z':
+        return rot(chr(ord(s[0]) - 25), n-1)
     else:
         return s
     
-assert encipher("xyza", 1) == "yzab"
-assert encipher("Z A", 1) == "A B"
-assert encipher('Caesarcijfer? Ik heb liever Caesarsalade.', 25) == 'Bzdrzqbhiedq? Hj gda khdudq Bzdrzqrzkzcd.'
+
 
 def decipher(s):
     """decipher functie die een gegeven string ontcijfert met een omgekeerd caesarschrift
@@ -50,13 +42,13 @@ def decipher(s):
     Args:
         s (string): de gegeven versleutelde string
     """
-    L = [encipher(s,n) for n in range(26)]
-    sumList = []
-    for x in L:
-        listProb = [letter_prob(x[b]) for b in range(len(x))]
-        sumList.append(sum(listProb))
-    max_index = sumList.index(max(sumList))
-    return L[max_index]
+    L = [[encipher(b,n) for b in s] for n in range(26)]
+    
+    prob = [[letter_prob(b) for b in x] for x in L]
+    lol = [sum(x) for x in prob]
+
+    return encipher(s, lol.index(max(lol)))
+
 
 
 
@@ -132,16 +124,20 @@ def blsort(L):
     Args:
         L (list): de lijst met binaire getallen
     """
-    sortList = []
-    numOne = 0
-    for x in L:
-        if x == 0:
-            sortList.append(0)
-        if x == 1:
-            numOne += 1
-    for x in range(numOne):
-        sortList.append(1)
-    return sortList
+    lc = [0 for x in L if x == 0] + [1 for x in L if x == 1]
+    return lc
+
+
+def rem_one(e, L):
+    """Returns sequence L with one e rmoved
+    """
+    if len(L) == 0:
+        return L
+    elif L[0] != e:
+        return L[0:1] + rem_one(e, L[1:])
+    else:
+        return L[1:]
+
 
 def gensort(L):
     """gensort neemt lijst L en sorteerd.
@@ -149,11 +145,13 @@ def gensort(L):
     Args:
         L (list): lijst met integers
     """
-    newL = []
-    for x in range(len(L)):
-        newL.append(min(L))
-        L.remove(min(L))
-    return newL
+    if L == []:
+        return []
+    else:
+        lc = [min(L)]
+        L = rem_one(min(L), L)
+        return lc + gensort(L)
+
 
 assert gensort([42, 1, 3.14]) == [1, 3.14, 42]
 assert gensort([7, 9, 4, 3, 0, 5, 2, 6, 1, 8]) == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -167,51 +165,77 @@ def lingo(s, t):
 
     """
     sameCounter = 0
-    for x in range(len(s)):
-        for b in range(len(t)):
-            if s[x] == t[b]:
-                t = t.replace(t[b], ' ', 1)
-                sameCounter += 1
-                print(s, t)
-                #visualisatie over hoe het programma werkt
-                break
-    if '' in s:
-        #compensatie voor spaties in s
-        #deze worden namelijk wel meegerekend in sameCounter
-        sameCounter -= 1    
-    return sameCounter
+    if s == '' or t == '':
+        return 0
+    if s[0] in t:
+        rem_one(s[0], t)
+        sameCounter += 1
+    return sameCounter + lingo(s[1:], t)   
+        
+
+def changeCalc(target, L):
+    print(L)
+    if target == 0:
+        return True
+    if target < 0:
+        return False
+    if L == []:
+        return 0
+    if L[0] > target:
+        return changeCalc(target, L[1:])
+    elif L[0] == target:
+        return L[0]
+    elif L[0] < target:
+        use = L[0] + changeCalc(target - L[0], L[1:])
+        lose = changeCalc(target, L[1:])
+        return max(use, lose)
 
 def exact_change(target, L):
-    for x in range(len(L)):
-        if L[x] > target:
-            print(L.remove(x))
-    print(L)
-    if target < 0:
-       return False
-    elif target == 0:
-       return True
+    """exact_change neemt een target amount en een lijst en kijkt of target gehaald kan worden met de inhoud van de lijst
+
+    Args:
+        target (int): het te behalen nummer.
+        L (list): de lijst met waarden
+
+    Returns:
+        boolean: T/F op basis van te behalen of niet
+    """
+    if changeCalc(target, L) == target or changeCalc(target, L) == True:
+        return True
     else: 
-        oou = sum(L)-target
-        if oou in L:
-            L.remove(oou)
-            print(L)
-            return True
-        elif oou not in L:
-            print('Geen direct resultaat')
-            return False
+        return False
+
+assert exact_change(42, [25, 1, 25, 10, 5, 1]) == True
+assert exact_change(42, [25, 1, 25, 10, 5]) == False
+assert exact_change(42, [23, 1, 23, 100]) == False
+assert exact_change(42, [23, 17, 2, 100]) == True
+assert exact_change(42, [25, 16, 2, 15]) == True  # de 16 moet "overgeslagen" kunnen worden...
+assert exact_change(0, [4, 5, 6]) == True
+assert exact_change(-47, [4, 5, 6]) == False
+assert exact_change(0, []) == True
+assert exact_change(42, []) == False
+
+
+def lcs(s,t):
+    """lcs neemt s en t en geeft een string terug met gemeenschappelijke letters
+
+    Args:
+        s (string): de eerste string
+        t (string): de tweede string
+    """
+    newString = ''
+    if len(s) == 0 or len(t) == 0:
+        return ''
+    elif s[0] == t[0]:
+        newString += s[0]
+        return s[0] + lcs(s[1:],t[1:])
+    else:
+        return max(lcs(s, t[1:]), lcs(s[1:], t), key=len)
+                
+assert lcs('mens', 'chimpansee') == 'mns'
+assert lcs('gattaca', 'tacgaacta') == 'gaaca'
+assert lcs('wow', 'wauw') == 'ww'
+assert lcs('abcdefgh', 'efghabcd') == 'abcd'
 
 
 
-        
-   
-
-
-
-#total = sum(L)
-#    oou = total-target
-#    if oou in L:
-#        L.remove(oou)
-#        return True
-#    elif oou not in L:
-#        print('Cant find exact oou in list L')
-#        return

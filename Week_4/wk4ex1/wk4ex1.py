@@ -1,7 +1,4 @@
-# Programmeren I, Practicum 4
-# Bestandsnaam: wk4ex1.py
-# Naam:
-# Probleemomschrijving: Geluidsbewerking
+#wk4ex1
 
 import time
 import random
