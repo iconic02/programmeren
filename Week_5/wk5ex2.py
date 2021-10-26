@@ -129,6 +129,9 @@ def compress(s):
     Args:
         s (string): binaire string
     """
+    if len(s) > 64:
+        print('string te lang')
+        return None
     if s == '':
         return ''
     counter = 0
@@ -167,7 +170,7 @@ def uncompress(s):
     if s == '':
         return ''
     else:
-        return uncompressHelp(s[0:9]) + uncompress(s[9:])
+        return uncompressHelp(s[0:8]) + uncompress(s[8:])
 
 
 def uncompressHelp(s):
@@ -179,3 +182,11 @@ def uncompressHelp(s):
     b = s[0]
     s = s.replace(b, '', 1)
     return base_b_to_num(s, 2) * b
+
+
+assert compress(64 * "0") == '01000000'
+assert compress(64 * "0") == '01000000'
+assert uncompress("10000101") == '11111'
+assert compress("11111") == '10000101'
+assert compress("0" * 16 + "1" * 16 + "0" * 16 + "1" * 16) == '00010000100100000001000010010000'
+assert uncompress("00010000100100000001000010010000") == '0000000000000000111111111111111100000000000000001111111111111111'
