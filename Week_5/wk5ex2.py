@@ -122,11 +122,60 @@ assert add_b("11", "100") == '111'
 assert add_b("110", "11") == "1001"
 assert add_b("1", "1") == "10"
 
+
 def compress(s):
     """compress neemt string s die binaire getallen bevat en geeft een compressie terug
 
     Args:
         s (string): binaire string
     """
-    if s[0] == '1':
-        
+    if s == '':
+        return ''
+    counter = 0
+    for x in s:
+        if x == s[0]:
+            counter += 1
+        else:
+            break
+    onePart = s[0] * counter
+    s = s.replace(onePart, '', 1)
+    return splitString(onePart) + compress(s)
+    
+def splitString(s):
+    """splitString functie die delen van compress accepteerd en een compressie teruggeeft
+
+    Args:
+        s (string): een deel van de compressie string
+    """
+    counter = 0
+    b = s[0]
+    for x in s:
+        if x == b:
+            counter += 1
+        else:
+            break
+    nullen = 7 - len(num_to_base_b(counter, 2))
+    return b + '0' * nullen + num_to_base_b(counter, 2)
+
+
+def uncompress(s):
+    """uncompress neemt een binaire string die geconversed is en maakt dit 'ongedaan'
+
+    Args:
+        s (string): de binaire gecompressede string
+    """
+    if s == '':
+        return ''
+    else:
+        return uncompressHelp(s[0:9]) + uncompress(s[9:])
+
+
+def uncompressHelp(s):
+    """uncompressHelp krijgt een 8 bit string en rekend dit tot een uncompressede string
+
+    Args:
+        s (string): string van 8 bits.
+    """
+    b = s[0]
+    s = s.replace(b, '', 1)
+    return base_b_to_num(s, 2) * b
