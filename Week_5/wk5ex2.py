@@ -8,12 +8,14 @@ def num_to_base_b(n, b):
         b (int): getal 2 tot 10
 
     """
+    if n < 0:
+        return
     if n == 0:
         return ''
     else:
         c = n % b
         n -= c
-        return num_to_base_b(n/b, b) + str(int(c))
+        return num_to_base_b(n//b, b) + str(int(c))
         
 assert num_to_base_b(3116, 9) == '4242'
 assert num_to_base_b(141474, 8) == '424242'
@@ -26,6 +28,7 @@ assert num_to_base_b(4, 3) == '11'
 assert num_to_base_b(4, 4) == '10'
 assert num_to_base_b(0, 4) == ''
 assert num_to_base_b(0, 2) == ''
+assert num_to_base_b(-10,3) == None
 
 
 def base_b_to_num(s, b):
@@ -121,6 +124,7 @@ assert add_b("11", "1") == '100'
 assert add_b("11", "100") == '111'
 assert add_b("110", "11") == "1001"
 assert add_b("1", "1") == "10"
+assert add_b("110101010", "11111111") == "1010101001"
 
 
 def compress(s):
