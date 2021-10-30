@@ -189,7 +189,6 @@ def uncompressHelp(s):
 
 
 assert compress(64 * "0") == '01000000'
-assert compress(64 * "0") == '01000000'
 assert uncompress("10000101") == '11111'
 assert compress("11111") == '10000101'
 assert compress("0" * 16 + "1" * 16 + "0" * 16 + "1" * 16) == '00010000100100000001000010010000'
