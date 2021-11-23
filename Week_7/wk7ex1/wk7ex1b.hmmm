@@ -10,3 +10,13 @@
 02 read r3    # voer m in
 03 read r4    # voer X_0 in
 04 read r5    # voer N in
+05 jeqzn r5 12   # jump als N == 0
+06 mul r4 r1 r4
+07 add r4 r4 r2
+08 mod r4 r4 r3
+09 addn r5 -1
+10 write r4
+11 jumpn 05
+12 halt
+
+#voor alle 0-100 nummers: a = 21 & c = 17

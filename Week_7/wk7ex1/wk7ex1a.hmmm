@@ -9,8 +9,11 @@
 # Practicumopgave #1: Bouw dit programma om naar "aftellen tot de derde macht"
 # Zie de practicumbeschrijving voor details
 
-00 read r1          # lees getal van de gebruiker in r1
-01 write r1         # druk de waarde van r1 af
-02 addn r1 1        # voeg 1 toe aan r1
-03 jumpn 01         # spring naar regel 01
-04 halt             # stopt nooit! [gebruik ctrl-c]
+00 read r1         #Lees input
+01 mul r2 r1 r1    #tot de macht 2
+02 mul r1 r2 r1    #tot de macht 3
+03 write r1        #schrijf r1
+04 addn r1 -1      #min 1
+05 write r1        #schrijf r1
+06 jgtzn r1 4      #als nog geen nul, opnieuw
+07 halt            #stop als nul
