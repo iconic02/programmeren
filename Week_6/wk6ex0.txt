@@ -1,0 +1,10 @@
+Het kan alles wat een normale computer ook kan,
+omdat de machine in staat is om binaire berekeningen uit te voeren via een clock.
+Dit zorgt ervoor dat het zoals een normale computer synchroon berekeningen kan doen,
+waardoor het universeel is.
+
+Ik denk dat dat het verplaatsen van electronen is, omdat dit ons verandert,
+terwijl fysieke interactie juist meer lijkt op het antwoord op een berekening.
+Het is immers zo dat om een arm te bewegen, we eerst een boodschap door moeten
+geven dat dit moet gebeuren, waardoor de fysieke interactie juist een berekening is
+van welke spieren we moeten aanspannen.
