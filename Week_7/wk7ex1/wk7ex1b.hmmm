@@ -1,9 +1,6 @@
-# wk7ex1b.hmmm wordt een random-number generator
+# wk7ex1b.hmmm
 #
-# Naam:
-
-# Practicumopgave #2: Breid deze code uit zodat dit je random-number generator wordt:
-#   (Merk op: dit is begincode die de invoer op de juiste manier verwerkt...)
+# Naam: Timo
 
 00 read r1    # voer a in
 01 read r2    # voer c in
@@ -11,12 +8,12 @@
 03 read r4    # voer X_0 in
 04 read r5    # voer N in
 05 jeqzn r5 12   # jump als N == 0
-06 mul r4 r1 r4
-07 add r4 r4 r2
-08 mod r4 r4 r3
-09 addn r5 -1
-10 write r4
-11 jumpn 05
-12 halt
+06 mul r4 r1 r4 #vervang X0 met a*X0
+07 add r4 r4 r2 #add c en vervang
+08 mod r4 r4 r3 #mod m en vervang
+09 addn r5 -1 # counter min 1
+10 write r4 # schrijf Xn
+11 jumpn 05 #ga terug naar jumpcheck
+12 halt # stop!!
 
-#voor alle 0-100 nummers: a = 21 & c = 17
+#kleinste getallen voor alle 0-100 nummers: a = 21 & c = 17
