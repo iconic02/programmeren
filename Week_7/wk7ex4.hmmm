@@ -2,9 +2,29 @@
 #
 # Naam: Timo
 
-#main
-read r1
-read r2
 
-
-# power
+00 read  r2           # Grondtal
+01 read  r1           # Machtsgetal
+02 setn  r15 42         # Initialiseer de stack pointer
+03 nop                  # Ruimte voor uitbreiding (zie wk7ex4!)
+04 calln r14 8          # Roep de faculteitsfunctie aan (op regel 7)
+05 nop                  # Ruimte voor uitbreiding (zie wk7ex4!)
+06 write r13            # Druk uitvoer af op het scherm
+07 halt                 # Klaar!
+#
+#Basisgeval (regels 7-10)
+08 jnezn r1  12         # de test voor het basisgeval: is de invoer r1 != 0 ?
+09 setn  r13 1          # Als r1 0 is, dan is het resultaat, r13, 1
+10 nop                  # Ruimte voor uitbreiding (of om iets af te drukken!)
+11 jumpr r14            # Geef het resultaat, r13, terug aan het regelnummer in r14
+#Recursief geval (regels 11-20)
+12 pushr r2  r15        # Bewaar (push) r1 op de stack (op positie r15)
+13 pushr r14 r15        # Bewaar (push) r14 op de stack 
+14 addn  r2 -1          # Bepaal N-1 en zet het in r2
+15 nop                  # Ruimte voor uitbreiding (of om iets af te drukken!)
+16 calln r14 8          # Vraag nu de faculteit van N-1  (Wow!)
+17 nop                  # Ruimte voor uitbreiding (of om iets af te drukken!)
+18 popr  r14 r15        # Verkrijg (pop) r14 van de stack
+19 popr  r2  r15        # Verkrijg (pop) r1 van de stack
+20 mul   r13 r1 r13     # Bereken r13 = N * fac(N-1)   (Wow!)
+21 jumpr r14            # Klaar! Geef r13 terug naar de aanroeper in r14
