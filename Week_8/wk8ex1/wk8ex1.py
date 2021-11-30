@@ -28,6 +28,30 @@ def test_fun():
 
     im.save_file()
 
-#
-# zet je functies van Practicum 8 hieronder neer:
-#
+
+def mult(c, n):
+    """mult geeft c * n maar met gebruik van een for loop en addition
+
+    Args:
+        c (float): een float die we n keer gaan optellen
+        n (int): positieve int
+    """
+    result = 0
+    for i in range(n):
+        result += c
+        print(result)
+    return result
+
+assert mult(3, 5) == 15
+assert mult(6, 7) == 42
+assert mult(1.5, 28) == 42.0
+
+
+def update(c, n):
+    """update de basisstap van de mandelbrotverzameling
+
+    Args:
+        c (int): constante c
+        n (int): aantal herhalingen
+    """
+    
