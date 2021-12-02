@@ -39,7 +39,6 @@ def mult(c, n):
     result = 0
     for i in range(n):
         result += c
-        print(result)
     return result
 
 assert mult(3, 5) == 15
@@ -54,4 +53,64 @@ def update(c, n):
         c (int): constante c
         n (int): aantal herhalingen
     """
+    z = 0
+    for i in range(n):
+        z = z ** 2 + c 
+    return z
+
+assert update(1, 3) == 5
+assert update(-1, 3) == -1
+assert update(1, 10) == 3791862310265926082868235028027893277370233152247388584761734150717768254410341175325352026
+assert update(-1, 10) == 0
+
+
+def in_mset(c, n):
+    """in_mset geeft true als c in mandelbrotverzamelings is, en false als niet.
+
+
+    Args:
+        c (float): complex getal
+        n (int): integer n, hoe vaak we het uitvoeren
+    """
+    z = 0
+    for i in range(n):
+        z = z ** 2 + c 
+        if abs(z) > 2:
+            return False
+    return True
     
+
+def we_want_this_pixel(col, row):
+    """
+    Functie geeft true of false als pixel is tiental
+
+    Col: int: pixel colomn
+    Row: int: pixel row
+    """
+    if col % 10 == 0 and row % 10 == 0:
+        return True
+    else:
+        return False
+
+
+def test():
+    """Laat zien hoe je een png maakt en opslaat
+
+    """
+    width = 300
+    height = 200
+    image = PNGImage(width, height)
+
+    # maak een lus om wat pixels te tekenen
+
+    for col in range(width):
+        for row in range(height):
+            if we_want_this_pixel(col, row):
+                image.plot_point(col, row)
+
+    # we hebben door alle pixels gelust; nu schrijven we het bestand
+
+    image.save_file()
+
+#Ik denk dat er lijnen ontstaan op de lijnen van 10 pixels.
+#Dus een ruitjesveld met dezelfde ruimte tussen lijnen.

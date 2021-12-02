@@ -1,50 +1,20 @@
-#def main():
-#    r1 = int(input())   # Regel 1, lees invoer van de gebruiker
-#    r13 = fib(r1)       # Regel 2, roep fib aan met paraemeter r1
-#    #print(r1)          # (alleen om te debuggen; lever dit niet in) Regel 3, druk r1 af
-#    print(r13)          # Regel 4, druk het r1-ste Fibonnaci-getal af
-#    return              # Regel 5, stop het programma
+#main
+ read r1
+ setn r15 60
+ jumpn xx
+ write r13
+ halt
 #
-#def fib(r1):
-#    if r1 - 2 <= 0:     # Regel 6, als r1 - 2 <= 0 dan is dit fib(1) of fib(2), en dus is het antwoord 1
-#        return 1        # Regel 7, dus geef 1 terug
-#    else:               # Regel 8, anders...
-#        r13 = fib(r1-1) # Regel 9, bereken fib(r1-1)
-#        r3 = r13        # Regel 10, sla het resultaat ergens anders op, want r13 is speciaal is special
-#        r13 = fib(r1-2) # Regel 11, bereken fib(r1-2)
-#        r13 = r13 + r3  # Regel 12, tel nu de resultaten van fib(r1-1) en fib(r1-2) bij elkaar op...
-#        return r13      # Regel 13, ...dat is de waarde die teruggegeven wordt in r13
-#
-# Naam: Timo
-#
-#main:
-00 read r1          #lees input
-01 copy r1 r2
-02 setn r13 1       #set 1 voor r1 == 1 of 2
-03 calln r14 6      #roep recursie aan
-04 write r13        #schrijf antwoord
-05 halt             #stop
-  #
-  # recursie!
-  # if 
-06 addn r1 -2       #check de if statement
-07 jgtzn r2 9      #idem
-08 jumpn 4
-  #else
-09 pushr r1 r15
-10 pushr r14 r15
-11 addn r1 -1
-12 copy r3 r1 
-13 addn r2 -2
-14 copy r4 r2
-15 nop
-16 calln r14 6
-17 popr r14 r15
-18 popr r1 r15
-19 add r13 r3 r4 
- #        r13 = fib(r1-1) # Regel 9, bereken fib(r1-1)
- #        r3 = r13        # Regel 10, sla het resultaat ergens anders op, want r13 is speciaal is special
- #        r13 = fib(r1-2) # Regel 11, bereken fib(r1-2)
- #        r13 = r13 + r3  # Regel 12, tel nu de resultaten van fib(r1-1) en fib(r1-2) bij elkaar op...
- #        return r13      # Regel 13, ...dat is de waarde die teruggegeven wordt in r13
-
+#fun
+ addn r2 -2    #is r1 -2
+ jgtzn r2 11
+ addn r13 1
+ write r13
+ halt
+ nop
+#recursie
+pushr r1 r15
+addn r15 1
+pushr r14 r15
+addn r15 1
+#voorbereiden aanroepen 
