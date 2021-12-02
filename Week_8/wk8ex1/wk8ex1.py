@@ -14,7 +14,7 @@ from png import *
 def test_fun():
     """ algorithmic image-creation one pixel at a time...
         this is a test function: it should output
-        an image named test.png in the same directory
+        an image  test.png in the same directory
     """
     im = PNGImage(300, 200)  # maak een afbeelding met width=300, height = 200
 
@@ -39,7 +39,6 @@ def mult(c, n):
     result = 0
     for i in range(n):
         result += c
-        print(result)
     return result
 
 assert mult(3, 5) == 15
@@ -54,4 +53,16 @@ def update(c, n):
         c (int): constante c
         n (int): aantal herhalingen
     """
-    
+    # z = z ** 2 + c
+    z = 0
+    for i in range(n):
+        z = z ** 2 + c
+    return z
+
+assert update(1, 3) == 5
+assert update(-1, 3) == -1
+assert update(1, 10) == 3791862310265926082868235028027893277370233152247388584761734150717768254410341175325352026
+assert update(-1, 10) == 0
+
+
+def 
