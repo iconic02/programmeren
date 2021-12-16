@@ -122,6 +122,7 @@ def in_a_row_3_southeast(ch,r_start,c_start,a):
     for i in range(3):
         if a[r_start + i][c_start + i] != ch:
             return False
+            
     return True
 
 

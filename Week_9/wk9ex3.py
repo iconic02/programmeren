@@ -1,5 +1,6 @@
 #
 #wk9ex3.py
+#
 #Naam: Timo Kosse
 #
 
@@ -7,9 +8,13 @@
 def menu():
     """A function that simply prints the menu"""
     print()
-    print("(0) Doorgaan!")
-    print("(1) Nieuwe lijst invoeren")
-    print("(2) Volgende element voorspellen")
+    print("(0) Voer een nieuwe lijst in")
+    print("(1) Druk de huidige lijst af")
+    print("(2) Geef de gemiddelde prijs")
+    print("(3) Geef de standaardafwijking")
+    print("(4) Geef het minimum met de bijbehorende dag")
+    print("(5) Geef het maximum met de bijbehorende dag")
+    print("(6) Het beste investeringsplan")
     print("(9) Stoppen! (einde)")
     print()
 
@@ -49,6 +54,27 @@ def find_min_loc(L):
 
     return min_val, min_loc
 
+def find_avg(L):
+    """find_avg geeft het gemiddelde van een lijst terug
+
+    Args:
+        L (list): de lijst met prijzen
+    """
+    count = 0
+    num_items = 0
+    for i in L:
+        count += i
+        num_items += 1
+    print('De gemiddelde prijs is', count / num_items)
+
+
+def find_standard_deviation(L):
+    """find_standard_deviation kijkt voor lijst L wat de standaardafwijkingis
+
+    Args:
+        L (list): lijst met prijzen
+    """
+    
 
 def main():
     """The main user-interaction loop"""
@@ -76,9 +102,6 @@ def main():
             break          # De hele while-lus afbreken
 
         elif choice == 0:  # We willen doorgaan...
-            continue       # Terug naar het begin van de while-lus
-
-        elif choice == 1:  # We willen een nieuwe lijst invoeren
             new_L = input("Voer een nieuwe lijst in: ")    # _iets_ invoeren
 
             #
@@ -92,6 +115,9 @@ def main():
                     L = new_L  # Hier is het wel OK, dus we passen onze lijst L aan
             except:
                 print("Ik begreep de invoer niet. L wordt niet aangepast.")
+
+        elif choice == 1:  # We willen een nieuwe lijst invoeren
+            print(L)
 
         elif choice == 2:   # Het volgende element voorspellen en toevoegen
             n = predict(L)  # Het volgende element uit de functie predict halen
@@ -112,6 +138,6 @@ def main():
 
         else:
             print(choice, " ?      Dat staat niet op het menu!")
-
+        
     print()
     print("Tot gisteren!")
