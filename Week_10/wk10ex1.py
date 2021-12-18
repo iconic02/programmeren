@@ -84,6 +84,18 @@ class Date:
                     return True
         return False
 
+    
+    def __iadd__(self, n):
+        """__iadd__ += operator redivined to equal add_n_days()
+
+        Args:
+            n (int): number added
+
+        Returns:
+            Date: a new date
+        """
+        
+
 
 
     # Hier is een voorbeeld van een "methode" van de klasse Date:
@@ -228,14 +240,22 @@ class Date:
         """add_n_days takes self and n and adds n days to self.
 
         Args:
-            n (int): aantal dagen erbij.    
+            n (int): days added    
         """
         for i in range(n):
             self.tomorrow()
             print(self)
 
             
-        
+    def sub_n_day(self, n):
+        """sub_n_day takes self and n and subtracts n days from self
+
+        Args:
+            n (int): days removed
+        """
+        for i in range(n):
+            self.yesterday()
+            print(self)
 
 
 

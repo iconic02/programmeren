@@ -181,6 +181,10 @@ assert in_a_row_3_northeast('O', 3, 0, a)
 assert not in_a_row_3_northeast('O', 3, 1, a)
 assert not in_a_row_3_northeast('X', 3, 3, a)
 
+# XOOX
+# XXOX
+# X XO
+# OOOX
 
 
 def in_a_row_n_east(ch, r_start, c_start, a, n):
