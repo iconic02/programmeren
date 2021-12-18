@@ -161,13 +161,13 @@ class Date:
     def tomorrow(self):
         """tomorrow verandert self naar 1 dag later
         """
-        if self.month in [1,3,7,8,10]:
+        if self.month in [1,3,5,7,8,10]:
             if self.day == 31:
                 self.day = 1
                 self.month += 1
             else:
                 self.day += 1
-        elif self.month in [5,6,9,11]:
+        elif self.month in [4,6,9,11]:
             if self.day == 30:
                 self.day = 1
                 self.month += 1
@@ -228,8 +228,13 @@ class Date:
         """add_n_days takes self and n and adds n days to self.
 
         Args:
-            n (int): aantal dagen erbij.
+            n (int): aantal dagen erbij.    
         """
+        for i in range(n):
+            self.tomorrow()
+            print(self)
+
+            
         
 
 
@@ -263,6 +268,8 @@ assert str(d) == '31-12-2020'
 d = Date(1,3,2021)
 d.yesterday()
 assert str(d) == '28-02-2021'
+
+
 
 #
 # vergeet niet je code voor de klasse Date HIERBOVEN toe te voegen; in de klassedefinitie
