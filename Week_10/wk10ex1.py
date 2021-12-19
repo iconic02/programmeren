@@ -1,7 +1,7 @@
 #
 # wk10ex1.py
 #
-# naam:
+# naam: Timo Kosse
 #
 
 # Eerst de klassedefinitie
@@ -307,13 +307,13 @@ class Date:
         count = 0
         if new_self.is_before(new_d2):
             while True:
-                count += 1
+                count -= 1
                 new_self.tomorrow()
                 if new_self.equals(new_d2):
                     break
         elif new_self.is_after(new_d2):
             while True:
-                count -= 1
+                count += 1
                 new_self.yesterday()
                 if new_self.equals(new_d2):
                     break
@@ -374,7 +374,9 @@ assert str(d) == '28-02-2021'
 
 d = Date(1,1,2021)
 d2 = Date(9,1,2021)
-assert d.diff(d2) == 8
+assert d.diff(d2) == -8
+assert d2 - d == 8
+assert d - d2 == -8
 
 d = Date(19,12,2021)
 d2 = Date(20,12,2021)
