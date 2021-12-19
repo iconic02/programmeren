@@ -94,7 +94,25 @@ class Date:
         Returns:
             Date: a new date
         """
-        
+        for i in range(n):
+            self.tomorrow
+        return self
+
+    
+    def __isub__(self, n):
+        """__isub__ -= operator redivined to equal sub_n_days()
+
+
+        Args:
+            n (int): number of days
+
+        Returns:
+            Date: the new date
+        """
+        for i in range(n):
+            self.yesterday
+        return self
+
 
 
 
@@ -243,19 +261,43 @@ class Date:
             n (int): days added    
         """
         for i in range(n):
-            self.tomorrow()
             print(self)
+            self.tomorrow()
+            
 
             
-    def sub_n_day(self, n):
-        """sub_n_day takes self and n and subtracts n days from self
+    def sub_n_days(self, n):
+        """sub_n_days takes self and n and subtracts n days from self
 
         Args:
             n (int): days removed
         """
-        for i in range(n):
-            self.yesterday()
+        for i in range(n):            
             print(self)
+            self.yesterday()
+
+
+    def diff(self, d2):
+        """diff gives the amount of days 2 dates differ
+
+        Args:
+            d2 (Date): the other date
+        """
+        count = 0
+        if self.is_before(d2):
+            while True:
+                count += 1
+                self.tomorrow()
+                if self.equals(d2):
+                    break
+        elif self.is_after(d2):
+            while True:
+                count += 1
+                self.yesterday()
+                if self.equals(d2):
+                    break
+        return count
+
 
 
 
