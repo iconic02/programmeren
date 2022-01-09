@@ -27,10 +27,10 @@ def next(n):
                     n = n[1:]
                     count = 1
                     break
-        else:
-            storage += extra(n[0],count)
-            n = n[1:]
-            break
+            else:
+                storage += extra(n[0],count)
+                n = n[1:]
+                break
     return int(storage)
         
     
