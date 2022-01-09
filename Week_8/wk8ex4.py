@@ -1,5 +1,10 @@
 #wk8ex4
+#
 #conway probleem
+#
+# naam: Timo Kosse
+
+
 
 def next(n):
     """next neemt een int n. En converteerd deze naar het 'volgende' getal d.m.v. de conway methode.
@@ -22,10 +27,10 @@ def next(n):
                     n = n[1:]
                     count = 1
                     break
-            else:
-                storage += extra(n[0],count)
-                n = n[1:]
-                break
+        else:
+            storage += extra(n[0],count)
+            n = n[1:]
+            break
     return int(storage)
         
     
