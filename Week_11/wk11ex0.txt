@@ -1,0 +1,12 @@
+'The net effect of the gain in computer skill is thus, ironically, a gain in human skill.'
+
+Ik denk dat in de toekomst IT beroepen makkelijker gemaakt kunnen worden door computers. 
+Als je kijkt naar OpenAI, die zelf code kan schrijven als je iets voorsteld en uitlegd, of een 'autonomous pentester' die naar makkelijke zwakke plekken zoekt in een systeem.
+Ik denk dat veel mensen de IT traditioneel zien als een gebied waar wij mensen beter in zijn, maar het zou mij helemaal niet verbazen als de IT juist erg geholpen wordt door computers.
+OpenAI Codex Live Demo: https://www.youtube.com/watch?v=SGUCcjHTmGY&t=352s 
+"Training an Autonomous Pentester with Deep RL" by Shane Caldwell: https://www.youtube.com/watch?v=EiI69BdWKPs&list=PLpgjrjU6qlOr5RtYReR3sXnAV64fXW44R&index=16
+
+'When engines suggest surprising moves, or arrangements of pieces that look "ugly" to human sensibilities, they are often seeing more deeply into the game than their users.'
+Robots. Ik denk dat veel mensen 'mooie' robots willen hebben. Terwijl dat soms tegen de functionaliteiten ingaat. Soms moet je robots maken die er raar uitzien, omdat ze dan veel beter kunnen lopen, of werken.
+Zo ook deze robots: https://www.youtube.com/watch?v=fn3KWM1kuAw&t=42s . Die misschien niet aan het ideaal voldoen, maar wel heel goed kunnen dansen, beter dan een robot die er veel 'beter' uit ziet.
+
