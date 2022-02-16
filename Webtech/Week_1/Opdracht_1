@@ -1,0 +1,23 @@
+<!DOCTYPE html lang='nl-NL'>
+
+<!-- Opdracht 1 week 1 Door: Timo -->
+<head>
+
+    <title>testtest</title>
+</head>
+<body>
+    <h1>Welkom bij deze website</h1>
+    <p>Super om meer van Flask te weten te komen!</p>
+    <a href="flask.pocoo.org">Hier is een link naar de officiële Flask website</a>
+    <p>Drie redenen waarom Flask cool is:</p>
+    <ul>
+        <li>Heel eenvoudig</li>
+        <li>Veel beschikbare add-ons</li> 
+        <li>Maakt binnen een paar minuten een website</li>
+    </ul>
+    <h2>Bonus</h2>
+    <p>Door op het logo te klikken wordt de website van </p>  
+    <a href="flash.pocoo.org">  
+    <img alt="HAHA" src="Flask.png" width=200px height=150px/>
+    </a>
+</body>
