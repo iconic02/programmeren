@@ -1,7 +1,7 @@
 #
 # wk10ex1.py
 #
-# naam:
+# naam: Timo Kosse
 #
 
 # Eerst de klassedefinitie
@@ -112,6 +112,25 @@ class Date:
         for i in range(n):
             self.yesterday
         return self
+
+
+    def __sub__(self, d2):
+        """__sub__ gives the difference between self and d2.
+
+        Args:
+            d2 (Date): the other date
+
+        Returns:
+            int: the number of days difference
+        """
+        if self.is_after(d2):
+            diff = self.diff(d2)
+            return diff
+        elif self.is_before(d2):
+            diff = self.diff(d2)
+            return diff
+        else:
+            return 0
 
 
 
@@ -278,27 +297,49 @@ class Date:
 
 
     def diff(self, d2):
-        """diff gives the amount of days 2 dates differ
+        """diff gives the amount of days 2 dates differ. 
 
         Args:
             d2 (Date): the other date
         """
+        new_self = self.copy()
+        new_d2 = d2.copy()
         count = 0
-        if self.is_before(d2):
+        if new_self.is_before(new_d2):
             while True:
-                count += 1
-                self.tomorrow()
-                if self.equals(d2):
+                count -= 1
+                new_self.tomorrow()
+                if new_self.equals(new_d2):
                     break
-        elif self.is_after(d2):
+        elif new_self.is_after(new_d2):
             while True:
                 count += 1
-                self.yesterday()
-                if self.equals(d2):
+                new_self.yesterday()
+                if new_self.equals(new_d2):
                     break
         return count
 
 
+    def dow(self):
+        """dow geeft de day of the week terug
+        """
+        date = Date(10,10,2010)
+        difference = abs(self - date) % 7
+        lijstje = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+        dag = lijstje[difference]
+        return dag
+
+
+    def dow2(self, ref_date):
+        """dow2 a new function for dow, which will help speed up day13_counter
+
+        Args:
+            ref_date (Date): a reference date
+        """
+        difference = abs(self - ref_date) % 7
+        lijstje = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+        dag = lijstje[difference]
+        return dag
 
 
 d = Date(1,1,2001)
@@ -331,26 +372,101 @@ d = Date(1,3,2021)
 d.yesterday()
 assert str(d) == '28-02-2021'
 
+d = Date(1,1,2021)
+d2 = Date(9,1,2021)
+assert d.diff(d2) == -8
+assert d2 - d == 8
+assert d - d2 == -8
+
+d = Date(19,12,2021)
+d2 = Date(20,12,2021)
+assert d.dow() == 'Sunday'
+assert d2.dow() == 'Monday'
 
 
-#
-# vergeet niet je code voor de klasse Date HIERBOVEN toe te voegen; in de klassedefinitie
-#
+
+# bonusopdrachten
 
 
-#
-# een aantal datums om mee te werken...
-#
-# Het handige van ze hier plaatsen is dat ze elke keer dat de software uitgevoerd
-#   wordt ze opnieuw gedefinieerd worden (en dat is nodig om te testen!)
-#
 
-d = Date(2, 12, 2020)    # Vandaag?
-d2 = Date(21, 12, 2020)   # Kerstvakantie
-ny = Date(1, 1, 2021)   # Nieuwjaar
-nd = Date(1, 1, 2030)   # Nieuw decennium
-nc = Date(1, 1, 2100)   # Nieuwe eeuw
-graduation = Date(12, 7, 2024)   # Pas dit zelf aan!
-vacation = Date(19, 7, 2021)     # Dit ook ~ zomervakantie!
-sm1 = Date(28, 10, 1929)    # Krach aandelenbeurs
-sm2 = Date(19, 10, 1987)    # Nog een beurskrach: Maandagen in okt. zijn gevaarlijk...
+def ny_counter():
+    """Kijkt voor de volgende 100 jaar, op welke dagen de nieuwjaars dagen vallen.
+    De functie geeft de totalen na het tellen terug
+    """
+
+    dowd = {}              # dowd is een dictionary van weekdagen
+    dowd["Sunday"] = 0     # een waarde van 0 voor Sunday
+    dowd["Monday"] = 0     # en zo verder...
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    # 100 jaar vooruit kijken...
+    for year in range(2021, 2121):
+        d = Date(1, 1, year)   # nieuwjaar opvragen
+        print('Huidige datum is', d)
+        s = d.dow()        # dag van de week zoeken
+        dowd[s] += 1       # tellen
+
+    print('Totalen zijn', dowd)
+
+    # we zouden dowd hier kunnen teruggeven
+    # maar dat is nu niet nodig
+    # return dowd
+
+
+def bday_counter():
+    """Kijkt voor de volgende 100 jaar, op welke dagen mijn verjaardagen vallen.
+    De functie geeft de totalen na het tellen terug
+    """
+
+    dowd = {}              # dowd is een dictionary van weekdagen
+    dowd["Sunday"] = 0     # een waarde van 0 voor Sunday
+    dowd["Monday"] = 0     # en zo verder...
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    # 100 jaar vooruit kijken...
+    for year in range(2021, 2121):
+        d = Date(22, 6, year)   # nieuwjaar opvragen
+        print('Huidige datum is', d)
+        s = d.dow()        # dag van de week zoeken
+        dowd[s] += 1       # tellen
+
+    print('Totalen zijn', dowd)
+
+# Totalen zijn {'Sunday': 14, 'Monday': 14, 'Tuesday': 15, 'Wednesday': 15, 'Thursday': 14, 'Friday': 14, 'Saturday': 14}
+
+
+
+def day13_counter():
+    """f13_counter geeft terug op welke dagen de 13e valt. Bekijkt voor de volgende 400 jaar
+    """
+    dowd = {}              
+    dowd["Sunday"] = 0     
+    dowd["Monday"] = 0     
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    ref_date = Date(10,10,2010)
+    for year in range(2021, 2421):
+        print('The year is: ', year)
+        for month in range(1,13):
+            d = Date(13, month, year)   
+            if d.dow2(ref_date) == 'Sunday':
+                ref_date = d.copy()
+            s = d.dow2(ref_date)       
+            dowd[s] += 1       
+
+    print('Totalen zijn', dowd)
+
+
+    # Totalen zijn {'Sunday': 687, 'Monday': 685, 'Tuesday': 685, 'Wednesday': 687, 'Thursday': 684, 'Friday': 688, 'Saturday': 684}

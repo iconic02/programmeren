@@ -188,6 +188,32 @@ assert not in_a_row_3_northeast('X', 3, 3, a)
 
 
 def in_a_row_n_east(ch, r_start, c_start, a, n):
+<<<<<<< HEAD
+    """in_a_row_n_east kijkt voor fopr for karakter met rij en kolom start en krijgt een array mee
+
+    Args:
+        ch (string): het karakter waar we voor kijken
+        r_start (int): een cijfer voor rij
+        c_start (int): een cijfer voor kolom
+        a (list): de array
+
+    Returns:
+        boolean: waar of niet waar
+    """
+    
+        rows = len(a)
+        cols = len(a[0])
+
+        if c_start > cols -3 or c_start < 0:
+            return False
+        if r_start < 0 or r_start >= rows:
+            return False
+
+        for i in range(3):
+            if a[r_start][c_start + i] != ch:
+                return False
+        return True
+=======
     rows = len(a)
     cols = len(a[0])
 
@@ -281,3 +307,4 @@ assert in_a_row_n_northeast('X', 4, 0, a, 5)
 assert in_a_row_n_northeast('O', 4, 1, a, 4)
 assert not in_a_row_n_northeast('O', 2, 0, a, 2)
 assert not in_a_row_n_northeast('X', 0, 3, a, 1)
+>>>>>>> 333838ee908f9ba5f0be578c6f8a089568d9d2e2

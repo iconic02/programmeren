@@ -1,3 +1,10 @@
+# wk8ex3.py
+#
+# pi met pijltjes
+#
+# naam: Timo Kosse
+
+
 import random
 import math
 
@@ -21,10 +28,13 @@ def for_pi(n):
         n (int): number of throws
     """
     hit = 0
+    pi = 0.0
     for i in range(n):
         if throw_dart() == True:
             hit += 1
-        print(hit, ' raak van ', i +1, ' worpen dus pi is ', (hit/(i+1) * 4)) 
+        pi = (hit/(i+1)) * 4
+        print(hit, ' raak van ', i + 1, ' worpen dus pi is ', pi) 
+    return pi
     
     
 def while_pi(error):
@@ -39,7 +49,7 @@ def while_pi(error):
         throw += 1
         if throw_dart() == True:
             hit += 1
-        pi_calc = (hit / (throw + 1)) * 4
+        pi_calc = 4 * (hit / throw) 
         print(hit, ' raak van ', throw, ' worpen dus pi is ', pi_calc)
         if pi_calc < (error + math.pi) and pi_calc > (math.pi - error):
             return throw

@@ -1,3 +1,9 @@
+# wk8ex2.py
+#
+#
+
+
+
 def count_evens(nums):
     """count_evens berekent het aantal even getallen in een lijst
 

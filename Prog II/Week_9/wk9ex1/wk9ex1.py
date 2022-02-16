@@ -1,7 +1,7 @@
 #
 # wk9ex1.py - Practicum Game of Life
 #
-# Naam:
+# Naam: Timo Kosse
 #
 
 import random
