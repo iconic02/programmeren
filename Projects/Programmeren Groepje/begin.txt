@@ -1,0 +1,38 @@
+    # uitleg klasse Board (kort)
+Klasse Board maakt allereerst een speelbord aan en geeft de ruimte om daarin te spelen
+met modules zoals: add_move, host_game en wins_for.
+Als laatst is de module play_game die de klasse Player mee neemt in het spelen van een 
+4-op-een-rij spel
+
+
+    # uitleg klasse Player (kort)
+Klasse Player is een klasse die bordposities bekijkt en hieruit vervolgstappen bepaald.
+Het doet dit met de verschillende methoden die belangrijke informatie geven.
+
+
+    # uitleg __init__(self, ox, tbt, ply)
+Bij init worden het character van self, de speelstijl (tbt) en het aantal stappen dat de KI vooruitkijkt (ply) meegegeven. 
+ox is een string die het karakter van de Player weergeeft
+tbt is een string die de strategie van de Player bepaalt
+ply is een int wat het aantal stappen geeft dat de speler in de toekomst kijkt
+
+
+    # uitleg __repr__(self)
+De methode repr geeft een string terug van het Player-object die de drie belangrijke eigenschappen 
+van het Player-object afdrukken: welke stenen gebruikt worden, de keuzestrategie en de ply.
+Self verwijst naar het object dat aangemaakt word en automatisch word meegegeven aan de constructor
+
+
+    # uitleg opp_ch(self)
+Opp_ch is een module die het andere karakter teruggeeft in het spel. 
+Als player als karakter 'X' heeft, geeft opp_ch 'O' terug en andersom.
+
+
+    # uitleg score_board(self, b)
+score_board is een module die een score teruggeeft van een bepaalde set.
+De score is gebaseert op winst, verlies of geen van beide.
+
+
+    # uitleg scores_for(self, b)
+scores_for is een module die bepaald welke score Player aan het gegeven bord geeft.
+De module gebruikt self.ply om te bepalen hoeveel zetten vooruit moet worden gekeken.
