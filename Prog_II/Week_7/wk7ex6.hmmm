@@ -1,0 +1,20 @@
+#main
+ read r1
+ setn r15 60
+ jumpn xx
+ write r13
+ halt
+#
+#fun
+ addn r2 -2    #is r1 -2
+ jgtzn r2 11
+ addn r13 1
+ write r13
+ halt
+ nop
+#recursie
+pushr r1 r15
+addn r15 1
+pushr r14 r15
+addn r15 1
+#voorbereiden aanroepen 

@@ -1,0 +1,30 @@
+# Week 7 Opgave 4
+#
+# Naam: Timo
+
+
+00 read  r2           # Grondtal
+01 read  r1           # Machtsgetal
+02 setn  r15 42         # Initialiseer de stack pointer
+03 nop
+04 calln r14 8          # Roep de faculteitsfunctie aan (op regel 7)
+05 nop
+06 write r13            # Druk uitvoer af op het scherm
+07 halt                 # Klaar!
+                #
+                #Basisgeval (regels 7-10)
+08 jnezn r1  12         # de test voor het basisgeval: is de invoer r1 != 0 ?
+09 setn  r13 1          # Als r1 0 is, dan is het resultaat, r13, 1
+10 nop
+11 jumpr r14            # Geef het resultaat, r13, terug aan het regelnummer in r14
+                #Recursief geval (regels 11-20)
+12 pushr r2  r15        # Bewaar (push) r2 op de stack (op positie r15)
+13 pushr r14 r15        # Bewaar (push) r14 op de stack 
+14 addn  r1 -1          # Bepaal N-1 en zet het in r1
+15 nop
+16 calln r14 8          # Vraag nu de faculteit van N-1  (Wow!)
+17 nop
+18 popr  r14 r15        # Verkrijg (pop) r14 van de stack
+19 popr  r2  r15        # Verkrijg (pop) r1 van de stack
+20 mul   r13 r2 r13     # Bereken r13 = N * fac(N-1)   (Wow!)
+21 jumpr r14            # Klaar! Geef r13 terug naar de aanroeper in r14

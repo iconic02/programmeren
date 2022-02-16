@@ -1,0 +1,6 @@
+Ik denk dat algoritmes erg subjectief kunnen zijn, maar dit helaas niet altijd zijn.
+Het ligt natuurlijk aan waarvoor het algoritme gemaakt is, waar het naar kijkt en welke conclusies het hieruit haalt.
+Als een algoritme zijn acties baseert op clicks, zal het inderdaad waarschijnlijk de keuzes van de gebruikers reflecteren.
+De selectiecriteria van het laten zien van advertenties is precies waar het hele probleem op berust.
+Voor zoekresultaten: als ergens vaak naar wordt gezocht, zullen deze vragen vaken als autofill voorkomen.
+In dat opzicht is het inderdaad het zoekgedrag van gebruikers wat de algoritmes maakt.
