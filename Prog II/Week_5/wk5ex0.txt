@@ -1,5 +1,0 @@
-Het gebruiken van een groter bit systeem, zodat er geen overflow zal plaatsvinden.
-Dit lijkt mij het simpelste om te doen. 
-Ik denk dat in een mechanisch systeem een overflow de bits weer naar nullen zou zetten terwijl in dit systeem
-het 'guidence' systeem zichzelf uit zet bij een overflow.
-Daarom ben ik het er wel mee eens.
